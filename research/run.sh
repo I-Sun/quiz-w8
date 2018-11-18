@@ -19,7 +19,7 @@ eval_dir=$output_dir/eval       # 预测的目录
 
 # config文件
 # todo 修改自己的config文件的名称
-config=ai100_quiz_w8.config
+config=ai100_quiz_w8_1.config
 pipeline_config_path=$output_dir/$config
 
 # 先清空输出目录，本地运行会有效果，tinymind上运行这一行没有任何效果
