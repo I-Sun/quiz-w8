@@ -19,7 +19,7 @@ eval_dir=$output_dir/eval       # 预测的目录
 
 # config文件
 # todo 修改自己的config文件的名称
-config=ai100_quiz_w8_1.config
+config=ai100_quiz_w8.config
 pipeline_config_path=$output_dir/$config
 
 # 先清空输出目录，本地运行会有效果，tinymind上运行这一行没有任何效果
@@ -27,7 +27,7 @@ pipeline_config_path=$output_dir/$config
 rm -rvf $output_dir/*
 
 # 因为dataset里面的东西是不允许修改的，所以这里要把config文件复制一份到输出目录
-cp $dataset_dir/$config $pipeline_config_path
+cp object_detection/samples/configs/$config $pipeline_config_path
 
 for i in {0..4}  # for循环中的代码执行5此，这里的左右边界都包含，也就是一共训练500个step，每100step验证一次
 do
