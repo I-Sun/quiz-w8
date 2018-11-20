@@ -24,7 +24,7 @@ pipeline_config_path=$output_dir/$config
 
 # 先清空输出目录，本地运行会有效果，tinymind上运行这一行没有任何效果
 # tinymind已经支持引用上一次的运行结果，这一行需要删掉，不然会出现上一次的运行结果被清空的状况。
-rm -rvf $output_dir/*
+# rm -rvf $output_dir/*
 
 # 因为dataset里面的东西是不允许修改的，所以这里要把config文件复制一份到输出目录
 cp object_detection/samples/configs/$config $pipeline_config_path
@@ -34,10 +34,6 @@ do
     echo "############" $i "runnning #################"
     last=$[$i*100]
     current=$[($i+1)*100]
-    echo "last : "
-    echo $last
-    echo "current : "
-    echo $current
     sed -i "s/^  num_steps: $last/  num_steps: $current/g" $pipeline_config_path  # 通过num_steps控制一次训练最多100step
 
     echo "############" $i "training #################"
